@@ -1,0 +1,669 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Derek Shore Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800;900&display=swap" rel="stylesheet">
+<style>
+/* Layout: full-bleed aerial hero with a giant white name, then story, writing, video, aerial stills, photos, resume. Single dark look on purpose. */
+
+:root{
+  --night:#0a1a2e; --navy:#163756; --dusk:#2b5f8a; --amber:#f0a35e; --white:#ffffff;
+  --mist:rgba(255,255,255,.78); --line:rgba(255,255,255,.24);
+  --font:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--night);color:var(--white);font-family:var(--font);font-weight:400;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+img,video{max-width:100%}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+h1,h2,h3{text-wrap:balance}
+section{padding:80px 0;scroll-margin-top:56px}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h2{margin:0 0 12px;font-weight:800;font-size:clamp(2.2rem,6vw,4.5rem);line-height:1;letter-spacing:-.03em}
+.lede{max-width:560px;color:var(--mist);font-weight:300;margin:0 0 44px}
+.subhead{margin:64px 0 8px;font-size:1.5rem;font-weight:800;letter-spacing:-.015em}
+.tip{margin:0 0 22px;color:var(--mist);font-weight:300;font-size:.95rem}
+
+/* NAV: fixed bar, clear over the photo, frosted once you scroll */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--amber);z-index:60}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:14px 0;font-weight:500;font-size:.95rem;transition:background .3s,padding .3s,box-shadow .3s}
+.nav.solid{background:rgba(10,26,46,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line);padding:6px 0}
+.navin{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:600;min-height:44px}
+.avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:50% 22%;border:2px solid var(--white);background:var(--white)}
+.nav ul{display:flex;gap:6px;margin:0;padding:0;list-style:none;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.nav ul::-webkit-scrollbar{display:none}
+.nav ul a{display:flex;align-items:center;min-height:44px;padding:0 11px;border-radius:999px;text-decoration:none;white-space:nowrap;text-shadow:0 1px 8px rgba(10,26,46,.6);transition:color .2s,background .2s}
+.nav ul a.on{color:var(--amber);background:rgba(255,255,255,.1)}
+@media(hover:hover){.nav ul a:hover{background:rgba(255,255,255,.12)}}
+
+/* HERO */
+.hero{position:relative;min-height:clamp(540px,86svh,860px);display:flex;flex-direction:column;justify-content:flex-end;padding:110px 0 56px;overflow:hidden;background:var(--navy)}
+.hero::before{content:"";position:absolute;left:0;right:0;top:-19%;bottom:0;background:url('media/hero.jpg') 58% 38%/cover no-repeat;transform:translate3d(0,var(--py,0px),0);will-change:transform;z-index:0}
+.hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,26,46,.5) 0%,rgba(10,26,46,.04) 22%,rgba(10,26,46,.1) 46%,rgba(10,26,46,.58) 74%,rgba(10,26,46,.9) 100%)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:20%;background:linear-gradient(transparent,var(--night));z-index:1}
+.hero .wrap{position:relative;z-index:2;width:100%}
+h1{margin:0;font-weight:900;font-size:clamp(3.6rem,21vw,12.5rem);line-height:.86;letter-spacing:-.045em;text-shadow:0 2px 30px rgba(10,26,46,.35)}
+h1 span{display:block}
+h1 .ghost{color:transparent;-webkit-text-stroke:2.5px var(--white);text-shadow:none}
+.sub{max-width:640px;margin:30px 0 0;font-size:1.1rem;font-weight:300;color:var(--mist)}
+.sub b{font-weight:600;color:var(--white)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 26px;border-radius:999px;border:2px solid var(--white);font-weight:600;text-decoration:none;transition:background .2s,color .2s,border-color .2s}
+.btn.solid{background:var(--white);color:var(--night)}
+.btn:hover{background:var(--amber);border-color:var(--amber);color:var(--night)}
+
+/* MEDIA */
+.media{position:relative;margin:0;border-radius:18px;overflow:hidden;background:#000}
+.media img,.media video{display:block;width:100%;height:100%;object-fit:cover}
+.media.contain video{object-fit:contain}
+.r169{aspect-ratio:16/9}
+.r11{aspect-ratio:1/1}
+.vid{margin:0;display:flex;flex-direction:column;gap:10px;min-width:0}
+.vid figcaption{font-weight:600;font-size:1rem;letter-spacing:-.01em}
+[data-lb]{cursor:zoom-in}
+@media(hover:hover){[data-lb] img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}[data-lb]:hover img{transform:scale(1.04)}}
+
+/* MY STORY */
+.about{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
+.about > *{min-width:0}
+.stats{display:grid;grid-template-columns:1fr;margin:0;padding:0;list-style:none}
+.stats li{min-width:0;padding:30px 0;border-top:1px solid var(--line)}
+.stats li:first-child{padding-top:0;border-top:0}
+.stats li:last-child{padding-bottom:0}
+.stats b{display:block;font-size:clamp(3.4rem,10vw,6.5rem);font-weight:800;letter-spacing:-.03em;line-height:1.05}
+.stats span{display:block;color:var(--mist);font-weight:300;font-size:1.1rem;max-width:380px}
+.tlh{margin:72px 0 10px}
+
+/* TIMELINE: tap a stop to open it */
+.tl{position:relative;margin-top:8px}
+.tl::before{content:"";position:absolute;left:11px;top:26px;bottom:26px;width:2px;background:linear-gradient(var(--amber),var(--dusk))}
+.tl details{position:relative;margin:0 0 14px;padding-left:46px}
+.tl details::before{content:"";position:absolute;left:3px;top:26px;width:18px;height:18px;border-radius:50%;background:var(--night);border:3px solid var(--dusk);transition:background .25s,border-color .25s,transform .25s}
+.tl details[open]::before{background:var(--amber);border-color:var(--amber);transform:scale(1.15)}
+.tl summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;align-items:center;gap:0 16px;padding:16px 20px;min-height:72px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.04);transition:background .2s,border-color .2s;-webkit-tap-highlight-color:transparent}
+.tl summary::-webkit-details-marker{display:none}
+.tl summary::after{content:"";grid-column:2;grid-row:1/4;width:12px;height:12px;border-right:2.5px solid var(--white);border-bottom:2.5px solid var(--white);transform:rotate(45deg);margin:-4px 6px 0 0;transition:transform .3s}
+.tl details[open] summary::after{transform:rotate(-135deg);margin-top:4px}
+.tl details[open] summary{background:rgba(255,255,255,.09);border-color:rgba(240,163,94,.7)}
+@media(hover:hover){.tl summary:hover{background:rgba(255,255,255,.09)}}
+.tl .yrs{font-weight:600;font-size:.85rem;letter-spacing:.06em;color:var(--amber)}
+.tl h3{margin:0;font-size:clamp(1.3rem,3.2vw,2rem);font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.tl .role{font-weight:300;color:var(--mist)}
+.tl .body{padding:18px 6px 8px 22px;animation:open .35s ease both}
+.tl .body ul{margin:0;padding-left:18px;color:var(--mist);font-weight:300}
+.tl .body li{margin-bottom:8px}
+@keyframes open{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+/* STORIES */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 14px}
+.chip{min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid var(--line);background:transparent;cursor:pointer;font-weight:500;transition:background .2s,color .2s,border-color .2s}
+.chip.on{background:var(--white);color:var(--night);border-color:var(--white)}
+@media(hover:hover){.chip:not(.on):hover{border-color:var(--white)}}
+.count{margin:0 0 6px;color:var(--mist);font-weight:300;font-size:.9rem}
+.stories{border-top:1px solid var(--line)}
+.story{display:grid;grid-template-columns:1fr auto;gap:8px 24px;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--line);text-decoration:none;transition:padding .25s,color .25s}
+.story[hidden]{display:none}
+.story h3{margin:0;font-size:clamp(1.6rem,4.2vw,3rem);font-weight:800;letter-spacing:-.025em;line-height:1.05}
+.story p{grid-column:1;margin:0;color:var(--mist);font-weight:300;max-width:640px}
+.story .meta{grid-row:1;grid-column:2;text-align:right;font-size:.85rem;color:var(--mist);white-space:nowrap;line-height:1.4}
+.story .meta span{display:block}
+@media(hover:hover){.story:hover{padding-left:20px;color:var(--amber)}}
+.story:active{color:var(--amber)}
+.more{margin-top:32px;display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.more span{color:var(--mist);font-weight:300}
+.btn.ghost{background:transparent;cursor:pointer;color:inherit}
+.btn[hidden]{display:none}
+
+/* VIDEO */
+.vgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:28px 20px}
+.vgrid .vid{grid-column:span 2}
+.vgrid .vid.feature{grid-column:span 3}
+.vgrid .feature figcaption{font-size:1.2rem;font-weight:800}
+.rgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.rgrid .reel{aspect-ratio:9/16}
+
+/* AERIAL */
+.agrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.agrid .big{grid-column:span 2;aspect-ratio:16/9}
+.agrid .tile{aspect-ratio:16/9}
+.agrid .wide{grid-column:1/-1;aspect-ratio:16/9}
+.reel{position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:2px;padding:16px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(135deg,var(--navy),var(--dusk));text-decoration:none;transition:border-color .2s,transform .25s}
+.reel svg{position:absolute;top:16px;left:16px;width:40px;height:40px;transition:transform .25s}
+.reel strong{font-weight:800;font-size:1.05rem;letter-spacing:-.01em}
+.reel small{font-size:.8rem;font-weight:300;color:var(--mist)}
+.reel:active{border-color:var(--amber)}
+@media(hover:hover){.reel:hover{border-color:var(--amber);transform:translateY(-4px)}.reel:hover svg{transform:scale(1.12)}.reel:hover strong{color:var(--amber)}}
+
+/* PHOTOS */
+.pair{display:flex;gap:16px;margin-bottom:16px}
+.pair .media{margin:0;min-width:0}
+.pair .a{flex:1.3333 1 0;aspect-ratio:4/3}
+.pair .b{flex:.75 1 0;aspect-ratio:3/4}
+.mason{columns:3;column-gap:16px}
+.mason .media{margin:0 0 16px;break-inside:avoid;background:var(--navy)}
+.mason .media img{height:auto}
+
+/* RESUME: a paper sheet that follows the layout of his original resume */
+.paper{--ink:#1d2733;--soft:#4a5563;--navy-r:#163756;display:grid;grid-template-columns:34% 1fr;background:#fff;color:var(--ink);border-radius:6px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.45);font-size:.92rem;line-height:1.55}
+.paper > *{min-width:0}
+.rside{background:var(--navy-r);color:#fff;padding:44px 28px}
+.rside .photo{width:150px;height:150px;border-radius:50%;border:5px solid #fff;object-fit:cover;object-position:50% 20%;display:block;margin:0 auto 34px;background:#fff}
+.rside h3,.rmain h3{margin:0 0 10px;font-size:1rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.rside h3{padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.7)}
+.rside section,.rmain section{padding:0;margin:0 0 28px}
+.rside ul{margin:0;padding:0;list-style:none}
+.rside li{margin:0 0 6px;font-weight:300;word-break:break-word}
+.rside .school b{display:block;font-weight:600;margin-top:12px}
+.rside .school span{display:block;font-weight:300}
+.rside .skills li{padding-left:14px;position:relative;margin-bottom:10px}
+.rside .skills li::before{content:"";position:absolute;left:0;top:.7em;width:4px;height:4px;border-radius:50%;background:#fff}
+.rmain{padding:44px 40px 36px}
+.rmain .nm{margin:0;font-size:clamp(2rem,5vw,3rem);font-weight:800;letter-spacing:-.01em;line-height:1.05;color:var(--navy-r)}
+.rmain .nm span{font-weight:300}
+.rmain .ttl{margin:6px 0 0;font-size:1.15rem;font-weight:300;letter-spacing:.04em;text-transform:uppercase;color:var(--soft)}
+.rmain .rule{width:64px;height:5px;background:var(--navy-r);margin:16px 0 34px}
+.rmain h3{color:var(--navy-r);padding-bottom:8px;border-bottom:2px solid var(--navy-r)}
+.rmain p{margin:0;color:var(--soft)}
+.rjobs{position:relative;margin-top:16px;padding-left:22px;border-left:2px solid var(--navy-r)}
+.rjob{position:relative;margin-bottom:22px}
+.rjob::before{content:"";position:absolute;left:-29px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--navy-r)}
+.rjob .top{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.rjob b{font-weight:700;font-size:1.02rem;color:var(--ink)}
+.rjob .when{font-size:.82rem;color:var(--soft);letter-spacing:.04em;white-space:nowrap}
+.rjob .rl{color:var(--soft);margin:0 0 6px}
+.rjob ul{margin:0;padding-left:18px;color:var(--soft)}
+.rjob li{margin-bottom:4px}
+.rfoot em{font-weight:500;color:var(--soft)}
+
+/* CONTACT */
+.contact{background:linear-gradient(180deg,var(--night),var(--navy));padding:100px 0 72px}
+.contact h2{font-size:clamp(2.4rem,7vw,5rem);font-weight:900}
+.cinfo{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:12px 56px;margin:36px 0 0;padding:0}
+.cinfo div{min-width:0}
+.cinfo dt{font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);margin:0 0 4px}
+.cinfo dd{margin:0;font-size:clamp(1.1rem,2.6vw,1.5rem);font-weight:500;word-break:break-word}
+.cinfo a{text-decoration:none;display:inline-block;padding:6px 0}
+.cinfo a:hover{color:var(--amber)}
+footer{padding:28px 20px;text-align:center;font-size:.85rem;color:var(--mist);background:var(--navy)}
+
+/* TIMELINE helpers */
+.tiprow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;margin:0 0 22px}
+.tiprow .tip{margin:0}
+.linkbtn{min-height:44px;padding:0 4px;border:0;background:none;cursor:pointer;color:var(--amber);font-weight:600;text-decoration:underline;text-underline-offset:5px}
+
+/* BACK TO TOP, COPY, TOAST */
+.totop{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:45;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:rgba(10,26,46,.88);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);cursor:pointer;display:grid;place-items:center;padding:0;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .25s,transform .25s,visibility 0s .25s}
+.totop.show{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.totop svg{width:20px;height:20px}
+.cp{margin-left:12px;min-height:36px;padding:0 14px;border-radius:999px;border:1.5px solid var(--line);background:transparent;cursor:pointer;font-size:.8rem;font-weight:600;vertical-align:middle;transition:border-color .2s,color .2s}
+@media(hover:hover){.cp:hover{border-color:var(--amber);color:var(--amber)}}
+.toast{position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);z-index:120;background:var(--white);color:var(--night);padding:10px 20px;border-radius:999px;font-weight:600;font-size:.9rem;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* PHOTO VIEWER */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(5,12,22,.96);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .25s,visibility 0s .25s}
+.lb.open{opacity:1;visibility:visible;transition-delay:0s}
+.lb img{max-width:100vw;max-height:calc(100svh - 130px);object-fit:contain;border-radius:6px;user-select:none;-webkit-user-select:none;-webkit-user-drag:none}
+.lb button{position:absolute;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.12);color:#fff;font-size:1.7rem;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0}
+.lb button:hover{background:rgba(255,255,255,.24)}
+.lb-x{top:max(14px,env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px))}
+.lb-p{left:max(10px,env(safe-area-inset-left,0px));top:50%;transform:translateY(-50%)}
+.lb-n{right:max(10px,env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%)}
+.lb-c{position:absolute;bottom:max(20px,env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;font-size:.85rem;color:var(--mist)}
+
+/* SCROLL REVEAL */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .agrid{grid-template-columns:repeat(2,1fr)}
+  .agrid .big{grid-column:span 1}
+  .agrid .wide{grid-column:span 2}
+  .vgrid .vid,.vgrid .vid.feature{grid-column:span 3}
+  .mason{columns:2}
+  .paper{grid-template-columns:1fr}
+  .rside{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;padding:36px 28px}
+  .rside .photo{grid-column:1/-1}
+  .about{grid-template-columns:1fr;gap:36px}
+  .about .r11{max-width:420px}
+  .stats{grid-template-columns:repeat(2,1fr);gap:20px 28px;padding-top:28px;border-top:1px solid var(--line)}
+  .stats li,.stats li:first-child,.stats li:last-child{padding:0;border:0}
+}
+@media(max-width:760px){
+  section{padding:68px 0}
+  .story{grid-template-columns:1fr}
+  .story .meta{grid-row:auto;grid-column:1;text-align:left;display:flex;gap:12px}
+  .rgrid{grid-template-columns:repeat(2,1fr)}
+  .cinfo{grid-template-columns:1fr}
+  .stats{gap:22px 16px}
+  .tlh{margin-top:56px}
+}
+@media(max-width:560px){
+  .brand{display:none}
+  .navin{display:block}
+  .nav ul{gap:2px;font-size:.88rem;margin:0 -20px;padding:0 14px}
+  .hero{padding-bottom:44px}
+  .agrid,.vgrid{grid-template-columns:1fr}
+  .agrid .big,.agrid .wide,.agrid .tile{grid-column:auto}
+  .vgrid .vid,.vgrid .vid.feature{grid-column:auto}
+  .pair{flex-direction:column}
+  .pair .a,.pair .b{flex:none;width:100%}
+  .mason{columns:1}
+  .rside{grid-template-columns:1fr;padding:32px 22px}
+  .rmain{padding:32px 22px 28px}
+  .rjob .top{flex-direction:column;gap:0}
+  .tl details{padding-left:38px}
+  .tl summary{padding:14px 16px}
+  .tl .body{padding-left:14px}
+  .lb-p,.lb-n{top:auto;bottom:max(14px,env(safe-area-inset-bottom,0px));transform:none}
+  .lb-p{left:calc(50% - 64px)}
+  .lb-n{right:calc(50% - 64px)}
+  .lb-c{display:none}
+}
+@media(prefers-reduced-motion:no-preference){
+  h1 span{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  h1 span:nth-child(2){animation-delay:.14s}
+  @keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .rv{opacity:1;transform:none;transition:none}
+  .tl .body{animation:none}
+  .hero::before{transform:none}
+}
+
+</style>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+<nav class="nav" id="nav" aria-label="Primary"><div class="wrap navin">
+  <a class="brand" href="#top" aria-label="Derek Shore, back to top"><img class="avatar" src="media/derek-shore.webp" alt=""><span>Derek Shore</span></a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#stories">Writing</a></li>
+    <li><a href="#video">Video</a></li>
+    <li><a href="#aerial">Aerial</a></li>
+    <li><a href="#photos">Photos</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="shade"></div>
+  <div class="wrap">
+    <h1><span>Derek</span><span class="ghost">Shore</span></h1>
+    <p class="sub"><b>Communications professional.</b> Content Creator, Writer, Photographer, Videographer, Designer, and FAA Part 107 Drone Pilot in Northwest Arkansas.</p>
+    <div class="cta"><a class="btn solid" href="#about">About me</a><a class="btn" href="#contact">Contact me</a></div>
+  </div>
+</header>
+
+<section id="about" class="rv"><div class="wrap">
+  <div class="about">
+    <figure class="media r11">
+      <img src="media/derek-shore.webp" alt="Derek Shore" style="object-position:50% 24%">
+    </figure>
+    <ul class="stats" aria-label="By the numbers">
+      <li><b data-n="6" data-suf="+">6+</b><span>years combined in journalism, marketing and communications</span></li>
+      <li><b data-n="300" data-suf="+">300+</b><span>stories written since joining Communities Unlimited in 2024</span></li>
+    </ul>
+  </div>
+
+  <h2 class="tlh">My timeline</h2>
+  <div class="tiprow"><p class="tip">Tap a stop to see what I did there.</p><button type="button" class="linkbtn" id="tlAll">Open all</button></div>
+  <div class="tl">
+    <details name="career" open>
+      <summary><span class="yrs">2024 – Present</span><h3>Communities Unlimited</h3><span class="role">Content Coordinator</span></summary>
+      <div class="body"><ul>
+        <li>Manage content for the organization, overseeing production and directing one team member through project management.</li>
+        <li>Write and edit for print and digital platforms, including the monthly newsletter, press releases and the website.</li>
+        <li>Interview and profile community members and clients, creating stories that strengthen the organization’s brand presence.</li>
+        <li>Capture and edit photography, video and drone footage for campaigns, reports, and presentations.</li>
+        <li>Build relationships with media outlets to help earn coverage for the organization at the local, regional and national level.</li>
+        <li>Support social media and work with teams across the organization.</li>
+      </ul></div>
+    </details>
+    <details name="career">
+      <summary><span class="yrs">2022 – 2024</span><h3>Element 79 Media Group</h3><span class="role">Content Coordinator</span></summary>
+      <div class="body"><ul>
+        <li>Created multimedia content for websites, blogs, video and social media platforms, boosting client visibility and brand awareness.</li>
+        <li>Operated drones for aerial photography and videography, enhancing marketing materials and meeting FAA compliance standards.</li>
+        <li>Managed digital assets in Microsoft SharePoint.</li>
+      </ul></div>
+    </details>
+    <details name="career">
+      <summary><span class="yrs">2020 – 2022</span><h3>The Joplin Globe</h3><span class="role">Sports Reporter</span></summary>
+      <div class="body"><ul>
+        <li>Covered 60+ high schools across Missouri, Kansas and Oklahoma, delivering breaking news, game coverage and in-depth features.</li>
+        <li>Covered Missouri Southern State University, Pittsburg State, Crowder College and Ozark Christian College athletics.</li>
+        <li>Increased sports readership through engaging storytelling and comprehensive beat coverage.</li>
+      </ul></div>
+    </details>
+  </div>
+</div></section>
+
+<section id="stories" class="rv"><div class="wrap">
+  <h2>Writing</h2>
+  <p class="lede">Recent features I wrote for the Communities Unlimited blog.</p>
+  <div class="chips" role="group" aria-label="Filter stories by topic">
+    <button type="button" class="chip on" data-cat="all" aria-pressed="true">All</button>
+    <button type="button" class="chip" data-cat="Infrastructure" aria-pressed="false">Infrastructure</button>
+    <button type="button" class="chip" data-cat="Entrepreneurship" aria-pressed="false">Entrepreneurship</button>
+    <button type="button" class="chip" data-cat="Lending" aria-pressed="false">Lending</button>
+    <button type="button" class="chip" data-cat="Housing" aria-pressed="false">Housing</button>
+    <button type="button" class="chip" data-cat="Community" aria-pressed="false">Community</button>
+  </div>
+  <p class="count" id="count" aria-live="polite"></p>
+  <div class="stories" id="storylist">
+    <a class="story" data-cat="Entrepreneurship" href="https://communitiesu.org/blog/2026/09/24/cottage-bakery-financial-planning-fayetteville/"><h3>Sourdough Rising</h3><span class="meta"><span>Sep 24, 2026</span><span>Entrepreneurship</span></span><p>A Fayetteville cottage bakery builds the financial systems to pay for new equipment and a first hire.</p></a>
+    <a class="story" data-cat="Lending" href="https://communitiesu.org/blog/2026/09/15/cajun-food-truck-loan-crossett-arkansas/"><h3>Chasing Vision</h3><span class="meta"><span>Sep 15, 2026</span><span>Lending</span></span><p>A trailer loan launches a Cajun food truck in Crossett, Arkansas, and five years later it is paid off.</p></a>
+    <a class="story" data-cat="Community" href="https://communitiesu.org/blog/2026/08/12/rural-community-park-renovation-zavalla-texas/"><h3>Park Reborn</h3><span class="meta"><span>Aug 12, 2026</span><span>Community</span></span><p>About 60 volunteers renovate Zavalla City Park in East Texas in a single day.</p></a>
+    <a class="story" data-cat="Lending" href="https://communitiesu.org/blog/2026/07/09/small-business-lending-lufkin-barber/"><h3>A Chair of His Own</h3><span class="meta"><span>Jul 9, 2026</span><span>Lending</span></span><p>A barber opens his own shop in Lufkin, Texas, with a small business loan.</p></a>
+    <a class="story" data-cat="Entrepreneurship" href="https://communitiesu.org/blog/2026/06/04/open-space/"><h3>Open Space</h3><span class="meta"><span>Jun 4, 2026</span><span>Entrepreneurship</span></span><p>A loan-readiness workshop gets Pine Bluff entrepreneurs ready to fill empty downtown storefronts.</p></a>
+    <a class="story" data-cat="Infrastructure" href="https://communitiesu.org/blog/2026/06/02/buried-lines/"><h3>Buried Lines</h3><span class="meta"><span>Jun 2, 2026</span><span>Infrastructure</span></span><p>Mapping undocumented water lines in the Mississippi Delta after fiber crews kept breaking them.</p></a>
+    <a class="story" data-cat="Community" href="https://communitiesu.org/blog/2026/05/13/still-here/"><h3>Still Here</h3><span class="meta"><span>May 13, 2026</span><span>Community</span></span><p>After losing about 2,000 jobs, Morrilton, Arkansas, starts rebuilding with a downtown pocket park.</p></a>
+    <a class="story" data-cat="Housing" href="https://communitiesu.org/blog/2026/05/08/staying-is-the-point-on-14th-street/"><h3>Staying Is the Point on 14th Street</h3><span class="meta"><span>May 8, 2026</span><span>Housing</span></span><p>A Pine Bluff repair program helps longtime neighbors stay in their homes.</p></a>
+    <a class="story" data-cat="Community" href="https://communitiesu.org/blog/2026/02/26/quick-wins-explained/"><h3>Quick Wins Explained</h3><span class="meta"><span>Feb 26, 2026</span><span>Community</span></span><p>Why small, fast projects keep rural revitalization moving.</p></a>
+    <a class="story" data-cat="Infrastructure" href="https://communitiesu.org/blog/2026/01/13/refusing-to-quit/"><h3>Refusing to Quit</h3><span class="meta"><span>Jan 13, 2026</span><span>Infrastructure</span></span><p>After three decades of delays, a shared water system in northeastern Oklahoma gets its funding.</p></a>
+    <a class="story" data-cat="Community" href="https://communitiesu.org/blog/2025/10/31/ground-up-building-rural-workforce-pathways/"><h3>Ground Up</h3><span class="meta"><span>Oct 31, 2025</span><span>Community</span></span><p>A free commercial driver’s license program in East Texas places its first graduates.</p></a>
+    <a class="story" data-cat="Infrastructure" href="https://communitiesu.org/blog/2025/09/15/gordon-rebounds/"><h3>Gordon Rebounds</h3><span class="meta"><span>Sep 15, 2025</span><span>Infrastructure</span></span><p>A small Alabama town steadies its finances and water systems and opens the door to $1.5 million in grants.</p></a>
+    <a class="story" data-cat="Community" href="https://communitiesu.org/blog/2025/09/05/seeds-of-change/"><h3>Seeds of Change</h3><span class="meta"><span>Sep 5, 2025</span><span>Community</span></span><p>A vegetable garden behind city hall brings an East Texas town together.</p></a>
+    <a class="story" data-cat="Entrepreneurship" href="https://communitiesu.org/blog/2025/05/28/planting-seeds-of-hope/"><h3>Planting Seeds of Hope</h3><span class="meta"><span>May 28, 2025</span><span>Entrepreneurship</span></span><p>One mower in Fayetteville grows into a lawn care company in 15 states.</p></a>
+    <a class="story" data-cat="Housing" href="https://communitiesu.org/blog/2025/03/19/a-home-of-her-own/"><h3>A Home of Her Own</h3><span class="meta"><span>Mar 19, 2025</span><span>Housing</span></span><p>The first modular home built by Pine Bluff apprentices finds its owner.</p></a>
+    <a class="story" data-cat="Housing" href="https://communitiesu.org/blog/2024/10/17/building-futures/"><h3>Building Futures</h3><span class="meta"><span>Oct 17, 2024</span><span>Housing</span></span><p>Pine Bluff youth learn construction by building a modular home.</p></a>
+    <a class="story" data-cat="Infrastructure" href="https://communitiesu.org/blog/2024/08/08/dedication-flows-deep/"><h3>Dedication Flows Deep</h3><span class="meta"><span>Aug 8, 2024</span><span>Infrastructure</span></span><p>An Oklahoma water operator, nearing retirement, on what the job really takes.</p></a>
+    <a class="story" data-cat="Entrepreneurship" href="https://communitiesu.org/blog/2024/04/01/mississippi-entrepreneur-grows-hot-sauce-business/"><h3>From the Garden to the Shelf</h3><span class="meta"><span>Apr 1, 2024</span><span>Entrepreneurship</span></span><p>A Mississippi couple turns a backyard garden into a hot sauce business headed for grocery shelves.</p></a>
+  </div>
+  <p class="more"><button type="button" class="btn ghost" id="showall" aria-expanded="false">Show all 18 stories</button><a class="btn" href="https://communitiesu.org/blog/author/dshore/">Browse all my stories</a><span>300+ stories since March 2024</span></p>
+</div></section>
+
+<section id="video" class="rv"><div class="wrap">
+  <h2>On camera</h2>
+  <p class="lede">Video stories and reels I shot and edited.</p>
+  <div class="vgrid">
+    <figure class="vid feature"><div class="media r169 contain"><video controls playsinline preload="none" src="media/cu-promo.mp4" poster="media/cu-promo.jpg"></video></div><figcaption>Communities Unlimited promo</figcaption></figure>
+    <figure class="vid feature"><div class="media r169 contain"><video controls playsinline preload="none" src="media/wepair.mp4" poster="media/wepair.jpg"></video></div><figcaption>WEpair</figcaption></figure>
+    <figure class="vid"><div class="media r169 contain"><video controls playsinline preload="none" src="media/hopwood-breads.mp4" poster="media/hopwood-breads.jpg"></video></div><figcaption>Hopwood Breads</figcaption></figure>
+    <figure class="vid"><div class="media r169 contain"><video controls playsinline preload="none" src="media/francis-marion-schools.mp4" poster="media/francis-marion-schools.jpg"></video></div><figcaption>Francis Marion Schools</figcaption></figure>
+    <figure class="vid"><div class="media r169 contain"><video controls playsinline preload="none" src="media/lewisville-update.mp4" poster="media/lewisville-update.jpg"></video></div><figcaption>Lewisville Update</figcaption></figure>
+    <figure class="vid"><div class="media r169 contain"><video controls playsinline preload="none" src="media/eco-advancements.mp4" poster="media/eco-advancements.jpg"></video></div><figcaption>Eco Advancements</figcaption></figure>
+    <figure class="vid"><div class="media r169 contain"><video controls playsinline preload="none" src="media/building-people-housing.mp4" poster="media/building-people-housing.jpg"></video></div><figcaption>Building People Housing</figcaption></figure>
+    <figure class="vid"><div class="media r169 contain"><video controls playsinline preload="none" src="media/wright-pastoria.mp4" poster="media/wright-pastoria.jpg"></video></div><figcaption>Wright-Pastoria Water Association</figcaption></figure>
+  </div>
+  <h3 class="subhead">Reels</h3>
+  <!-- Facebook reel embeds are blocked inside published pages, so each tile opens the reel on Facebook. IDs: 1567167134792660, 2578556812644121, 2106158893658350, 1761673615135584 -->
+  <div class="rgrid">
+    <a class="reel" href="https://www.facebook.com/reel/1567167134792660" target="_blank" rel="noopener"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#fff"/><path d="M16 12.5v15l12-7.5z" fill="#0a1a2e"/></svg><strong>Reel 1</strong><small>Watch on Facebook</small></a>
+    <a class="reel" href="https://www.facebook.com/reel/2578556812644121" target="_blank" rel="noopener"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#fff"/><path d="M16 12.5v15l12-7.5z" fill="#0a1a2e"/></svg><strong>Reel 2</strong><small>Watch on Facebook</small></a>
+    <a class="reel" href="https://www.facebook.com/reel/2106158893658350" target="_blank" rel="noopener"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#fff"/><path d="M16 12.5v15l12-7.5z" fill="#0a1a2e"/></svg><strong>Reel 3</strong><small>Watch on Facebook</small></a>
+    <a class="reel" href="https://www.facebook.com/reel/1761673615135584" target="_blank" rel="noopener"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#fff"/><path d="M16 12.5v15l12-7.5z" fill="#0a1a2e"/></svg><strong>Reel 4</strong><small>Watch on Facebook</small></a>
+  </div>
+</div></section>
+
+<section id="aerial" class="rv"><div class="wrap">
+  <h2>From above</h2>
+  <p class="lede">Drone photography and video, shot under FAA Part 107.</p>
+  <div class="agrid">
+    <figure class="media big" data-lb><img src="media/lewisville-ar.jpg" alt="Aerial view of downtown Lewisville, Arkansas" loading="lazy" decoding="async"></figure>
+    <figure class="media big" data-lb><img src="media/pineland-tx.jpg" alt="Aerial view of fog over the pine forest near Pineland, Texas" loading="lazy" decoding="async"></figure>
+    <figure class="media big" data-lb><img src="media/mountain-fog.jpg" alt="Aerial view of fog settling into a mountain valley beside a pine-covered ridge" loading="lazy" decoding="async"></figure>
+    <figure class="media big" data-lb><img src="media/river-town-bridge.jpg" alt="Aerial view of a historic downtown beside a wide river, with an arched bridge in the foreground" loading="lazy" decoding="async"></figure>
+    <figure class="media wide" data-lb><img src="media/sunset-fall.jpg" alt="Aerial view of a small town at sunset, a bright sun over trees in fall color with a water tower on the right" loading="lazy" decoding="async"></figure>
+    <figure class="media tile"><img src="media/arizona.jpg" alt="Aerial view of desert mountains in Arizona at sunset" loading="lazy" decoding="async"></figure>
+    <figure class="media tile"><img src="media/table-rock-lake.jpg" alt="Aerial view of boat docks on Table Rock Lake near Eagle Rock, Missouri" loading="lazy" decoding="async"></figure>
+    <!-- YouTube embeds are blocked inside published pages, so these tiles open the reels on YouTube. Video IDs: dYAl0ZBQ76I, E3Y10BerDWA -->
+    <a class="reel tile" href="https://www.youtube.com/watch?v=dYAl0ZBQ76I" target="_blank" rel="noopener"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#fff"/><path d="M16 12.5v15l12-7.5z" fill="#0a1a2e"/></svg><strong>Aerial reel 1</strong><small>Watch on YouTube</small></a>
+    <a class="reel tile" href="https://www.youtube.com/watch?v=E3Y10BerDWA" target="_blank" rel="noopener"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#fff"/><path d="M16 12.5v15l12-7.5z" fill="#0a1a2e"/></svg><strong>Aerial reel 2</strong><small>Watch on YouTube</small></a>
+  </div>
+</div></section>
+
+<section id="photos" class="rv"><div class="wrap">
+  <h2>Behind the lens</h2>
+  <p class="lede">Interviews, site visits and field photography. Tap any photo to enlarge it.</p>
+  <div class="pair">
+    <figure class="media a" data-lb><img src="media/interview-mayor.jpg" alt="Derek filming a video interview with a small-town mayor" loading="lazy" decoding="async"></figure>
+    <figure class="media b" data-lb><img src="media/interview-hardware.jpg" alt="Derek filming an interview with a hardware store owner behind his counter" loading="lazy" decoding="async"></figure>
+  </div>
+  <div class="mason">
+    <figure class="media" data-lb><img src="media/farm-couple.jpg" alt="A farming couple sitting in their crop field" loading="lazy" decoding="async"></figure>
+    <figure class="media" data-lb><img src="media/water-plant-tour.jpg" alt="Three people talking during a water plant tour" loading="lazy" decoding="async"></figure>
+    <figure class="media" data-lb><img src="media/we-center.jpg" alt="An instructor showing two WE Center trainees how to use a miter saw" loading="lazy" decoding="async"></figure>
+    <figure class="media" data-lb><img src="media/lewisville-steps.jpg" alt="Two people seated on the steps of a historic building in Lewisville" loading="lazy" decoding="async"></figure>
+    <figure class="media" data-lb><img src="media/survey-crew.jpg" alt="Two men in safety vests with a GPS survey pole in a field" loading="lazy" decoding="async"></figure>
+    <figure class="media" data-lb><img src="media/trench-crew.jpg" alt="Two men looking at pipes laid in a trench beside a house" loading="lazy" decoding="async"></figure>
+    <figure class="media" data-lb><img src="media/derrick-white.jpg" alt="Derrick White smiling in front of his family home" loading="lazy" decoding="async"></figure>
+    <figure class="media" data-lb><img src="media/ribbon-cutting.jpg" alt="A ribbon cutting at a new water filling station" loading="lazy" decoding="async"></figure>
+    <figure class="media" data-lb><img src="media/water-station.jpg" alt="Water pouring from a filling station into a blue bottle" loading="lazy" decoding="async"></figure>
+    <figure class="media" data-lb><img src="media/bread-vendor.jpg" alt="A bread vendor holding a loaf under a market tent" loading="lazy" decoding="async"></figure>
+    <figure class="media" data-lb><img src="media/chef-nate.jpg" alt="Chef Nate standing beside his barbecue catering van" loading="lazy" decoding="async"></figure>
+    <figure class="media" data-lb><img src="media/response-team.jpg" alt="The back of a CU-RCAP response team vest" loading="lazy" decoding="async"></figure>
+    <figure class="media" data-lb><img src="media/us-map.jpg" alt="Map of the southern states over aerial farmland" loading="lazy" decoding="async"></figure>
+  </div>
+</div></section>
+
+<section id="resume" class="rv"><div class="wrap">
+  <h2>Resume</h2>
+  <p class="lede">Six-plus years combined in journalism, marketing and communications.</p>
+  <article class="paper" aria-label="Resume of Derek Shore">
+    <aside class="rside">
+      <img class="photo" src="media/derek-shore.webp" alt="">
+      <section>
+        <h3>Contact</h3>
+        <ul><li>417-342-9750</li><li>derekshore23@gmail.com</li><li>Northwest Arkansas</li></ul>
+      </section>
+      <section>
+        <h3>Education</h3>
+        <div class="school"><b>Missouri State University</b><span>2018 – 2020</span><span>Bachelor of Science in Journalism</span></div>
+        <div class="school"><b>Crowder College</b><span>2016 – 2018</span><span>Associate of Journalism</span></div>
+      </section>
+      <section>
+        <h3>Skills</h3>
+        <ul class="skills">
+          <li>Content and storytelling: writing, editing, AP Style, reporting, interviewing</li>
+          <li>Multimedia production: photography, videography, Adobe Premiere, Audition, Photoshop</li>
+          <li>Technical: drone operations (FAA Part 107), Microsoft Office Suite, SharePoint</li>
+          <li>Social media: Facebook, Instagram and LinkedIn content creation and analytics</li>
+        </ul>
+      </section>
+    </aside>
+    <div class="rmain">
+      <h2 class="nm">DEREK <span>SHORE</span></h2>
+      <p class="ttl">Communications Professional</p>
+      <div class="rule"></div>
+      <section>
+        <h3>Profile</h3>
+        <p style="margin-top:14px">Versatile content creator with 6+ years combined in journalism, marketing and communications. Experienced in producing digital and print content that increased audience engagement and drove growth. Skilled in Adobe Creative Cloud, AP Style and Microsoft Office, and FAA Part 107 certified for aerial videography.</p>
+      </section>
+      <section>
+        <h3>Work Experience</h3>
+        <div class="rjobs">
+          <div class="rjob"><div class="top"><b>Communities Unlimited</b><span class="when">2024 – PRESENT</span></div><p class="rl">Content Coordinator</p>
+            <ul><li>Managed content for the organization across digital and print channels, overseeing production and directing one team member through project management.</li><li>Interviewed and profiled community members and clients, creating stories that strengthened the organization’s brand presence.</li><li>Captured and edited photography, video and drone footage for campaigns, reports, and presentations.</li><li>Built relationships with media outlets to help earn the organization coverage on the local, regional and national level.</li><li>Coordinated with multiple teams to deliver content aligned with strategic goals.</li></ul></div>
+          <div class="rjob"><div class="top"><b>Element 79 Media Group</b><span class="when">2022 – 2024</span></div><p class="rl">Content Coordinator</p>
+            <ul><li>Created multimedia content for websites, blogs, video and social media platforms, boosting client visibility and brand awareness.</li><li>Operated drones for aerial photography and videography, enhancing marketing materials and meeting FAA compliance standards.</li><li>Managed digital assets in Microsoft SharePoint.</li></ul></div>
+          <div class="rjob"><div class="top"><b>The Joplin Globe</b><span class="when">2020 – 2022</span></div><p class="rl">Sports Reporter</p>
+            <ul><li>Covered 60+ high schools across Missouri, Kansas and Oklahoma, delivering breaking news, game coverage and in-depth features.</li><li>Covered Missouri Southern State University, Pittsburg State, Crowder College and Ozark Christian College athletics.</li><li>Increased sports readership through engaging storytelling and comprehensive beat coverage.</li></ul></div>
+        </div>
+      </section>
+      <section class="rfoot" style="margin-bottom:0">
+        <h3>References</h3>
+        <em>Available upon request</em>
+      </section>
+    </div>
+  </article>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+  <h2>Contact me</h2>
+  <dl class="cinfo">
+    <div><dt>Email</dt><dd><a href="mailto:derekshore23@gmail.com">derekshore23@gmail.com</a><button type="button" class="cp" data-copy="derekshore23@gmail.com" aria-label="Copy email address">Copy</button></dd></div>
+    <div><dt>Phone</dt><dd><a href="tel:+14173429750">417-342-9750</a><button type="button" class="cp" data-copy="417-342-9750" aria-label="Copy phone number">Copy</button></dd></div>
+    <div><dt>Location</dt><dd>Northwest Arkansas</dd></div>
+  </dl>
+</div></section>
+<footer>Derek Shore</footer>
+
+<button type="button" class="totop" id="totop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" aria-hidden="true">
+  <button type="button" class="lb-x" aria-label="Close">&times;</button>
+  <button type="button" class="lb-p" aria-label="Previous photo">&#8249;</button>
+  <img alt="">
+  <button type="button" class="lb-n" aria-label="Next photo">&#8250;</button>
+  <div class="lb-c" aria-hidden="true"></div>
+</div>
+
+<script>
+(function(){
+  var d=document, root=d.documentElement;
+  root.classList.add('js');
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* one scroll handler: top bar, progress line, hero parallax, scroll-linked numbers, back-to-top */
+  var nav=d.getElementById('nav'), bar=d.getElementById('progress'), hero=d.getElementById('top'), totop=d.getElementById('totop');
+  var stats=d.querySelector('.stats'), statEls=stats?[].slice.call(stats.querySelectorAll('b[data-n]')):[], ticking=false;
+  function frame(){
+    ticking=false;
+    var y=window.pageYOffset||root.scrollTop, h=root.scrollHeight-window.innerHeight, vh=window.innerHeight;
+    nav.classList.toggle('solid',y>40);
+    bar.style.width=(h>0?Math.min(100,y/h*100):0)+'%';
+    totop.classList.toggle('show',y>vh*1.2);
+    if(!reduce && y<hero.offsetHeight) hero.style.setProperty('--py',(y*0.18).toFixed(1)+'px');
+    if(!reduce && stats){
+      var r=stats.getBoundingClientRect();
+      var p=Math.max(0,Math.min(1,(vh*0.92-r.top)/(vh*0.5))), e=1-Math.pow(1-p,3);
+      statEls.forEach(function(b){ b.textContent=Math.round(+b.dataset.n*e)+(b.dataset.suf||''); });
+    }
+  }
+  function onScroll(){ if(!ticking){ticking=true; requestAnimationFrame(frame);} }
+  window.addEventListener('scroll',onScroll,{passive:true}); window.addEventListener('resize',onScroll); frame();
+  totop.addEventListener('click',function(){ window.scrollTo({top:0,behavior:reduce?'auto':'smooth'}); });
+
+  /* highlight the link for the section on screen */
+  var links=[].slice.call(d.querySelectorAll('.nav ul a'));
+  var ul=d.querySelector('.nav ul');
+  if('IntersectionObserver' in window){
+    var so=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        links.forEach(function(a){
+          var on=a.getAttribute('href')==='#'+e.target.id;
+          a.classList.toggle('on',on);
+          if(on&&ul&&ul.scrollWidth>ul.clientWidth){
+            try{ul.scrollTo({left:a.offsetLeft-ul.clientWidth/2+a.offsetWidth/2,behavior:'smooth'})}catch(x){}
+          }
+        });
+      });
+    },{rootMargin:'-45% 0px -50% 0px'});
+    [].slice.call(d.querySelectorAll('section[id]')).forEach(function(s){so.observe(s)});
+
+    /* sections fade up as they arrive */
+    var ro=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('in'); ro.unobserve(e.target);} });
+    },{rootMargin:'0px 0px -60px 0px'});
+    [].slice.call(d.querySelectorAll('.rv')).forEach(function(s){ro.observe(s)});
+
+  } else {
+    [].slice.call(d.querySelectorAll('.rv')).forEach(function(s){s.classList.add('in')});
+  }
+
+  /* stories: filter chips + show more */
+  var list=d.getElementById('storylist');
+  if(list){
+    var items=[].slice.call(list.children), chips=[].slice.call(d.querySelectorAll('.chip'));
+    var moreBtn=d.getElementById('showall'), count=d.getElementById('count'), LIMIT=5, cat='all', open=false;
+    chips.forEach(function(c){
+      var k=c.dataset.cat; if(k!=='all'){ var n=items.filter(function(i){return i.dataset.cat===k}).length; c.textContent=c.textContent+' · '+n; }
+      c.addEventListener('click',function(){
+        cat=c.dataset.cat; open=false;
+        chips.forEach(function(x){var on=x===c; x.classList.toggle('on',on); x.setAttribute('aria-pressed',on)});
+        render();
+      });
+    });
+    moreBtn.addEventListener('click',function(){ open=!open; render(); if(!open){ list.scrollIntoView({block:'start'}); } });
+    function render(){
+      var match=items.filter(function(i){return cat==='all'||i.dataset.cat===cat});
+      var limit=(cat==='all'&&!open)?LIMIT:match.length, shown=0;
+      items.forEach(function(i){
+        var show=match.indexOf(i)>-1&&shown<limit; if(show) shown++;
+        i.hidden=!show;
+      });
+      count.textContent='Showing '+shown+' of '+items.length+' stories';
+      moreBtn.hidden=!(cat==='all'&&match.length>LIMIT);
+      moreBtn.textContent=open?'Show fewer':'Show all '+items.length+' stories';
+      moreBtn.setAttribute('aria-expanded',open);
+    }
+    render();
+  }
+
+  /* timeline: open or close every stop */
+  var tlBtn=d.getElementById('tlAll'), tds=[].slice.call(d.querySelectorAll('.tl details')), allOpen=false;
+  if(tlBtn){ tlBtn.addEventListener('click',function(){
+    allOpen=!allOpen;
+    tds.forEach(function(x,i){ x.open=allOpen||i===0; if(allOpen) x.removeAttribute('name'); else x.setAttribute('name','career'); });
+    tlBtn.textContent=allOpen?'Close all':'Open all';
+  }); }
+
+  /* contact: copy buttons */
+  var toast=d.getElementById('toast'), tt=null;
+  function say(m){ toast.textContent=m; toast.classList.add('show'); clearTimeout(tt); tt=setTimeout(function(){toast.classList.remove('show')},1800); }
+  function legacyCopy(text){
+    var ta=d.createElement('textarea'); ta.value=text; ta.setAttribute('readonly',''); ta.style.cssText='position:fixed;left:-9999px;top:0;opacity:0';
+    d.body.appendChild(ta); ta.select(); var ok=false; try{ok=d.execCommand('copy')}catch(x){} d.body.removeChild(ta); return ok;
+  }
+  [].slice.call(d.querySelectorAll('.cp')).forEach(function(b){
+    b.addEventListener('click',function(){
+      var text=b.dataset.copy;
+      var done=function(ok){ say(ok?'Copied':'Press and hold the text to copy'); };
+      if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(function(){done(true)},function(){done(legacyCopy(text))}); }
+      else done(legacyCopy(text));
+    });
+  });
+
+  /* only one video plays at a time */
+  d.addEventListener('play',function(e){
+    if(e.target.tagName!=='VIDEO') return;
+    [].slice.call(d.querySelectorAll('video')).forEach(function(v){ if(v!==e.target) v.pause(); });
+  },true);
+
+  /* photo viewer: tap a photo, swipe or use arrow keys */
+  var figs=[].slice.call(d.querySelectorAll('[data-lb]'));
+  var lb=d.getElementById('lb'), lbImg=lb.querySelector('img'), lbC=lb.querySelector('.lb-c');
+  var cur=0, lastFocus=null, tx=null;
+  function show(i){
+    cur=(i+figs.length)%figs.length;
+    var im=figs[cur].querySelector('img');
+    lbImg.src=im.currentSrc||im.src; lbImg.alt=im.alt;
+    lbC.textContent=(cur+1)+' / '+figs.length;
+  }
+  function openLb(i){ lastFocus=d.activeElement; show(i); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); root.style.overflow='hidden'; lb.querySelector('.lb-x').focus(); }
+  function closeLb(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); root.style.overflow=''; if(lastFocus&&lastFocus.focus) lastFocus.focus(); }
+  figs.forEach(function(f,i){
+    f.setAttribute('tabindex','0'); f.setAttribute('role','button'); f.setAttribute('aria-label','Open photo '+(i+1)+' of '+figs.length);
+    f.addEventListener('click',function(){openLb(i)});
+    f.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();openLb(i)} });
+  });
+  lb.querySelector('.lb-x').addEventListener('click',closeLb);
+  lb.querySelector('.lb-p').addEventListener('click',function(){show(cur-1)});
+  lb.querySelector('.lb-n').addEventListener('click',function(){show(cur+1)});
+  lb.addEventListener('click',function(e){ if(e.target===lb) closeLb(); });
+  d.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('open')) return;
+    if(e.key==='Escape') closeLb();
+    else if(e.key==='ArrowLeft') show(cur-1);
+    else if(e.key==='ArrowRight') show(cur+1);
+  });
+  lb.addEventListener('touchstart',function(e){ tx=e.touches[0].clientX; },{passive:true});
+  lb.addEventListener('touchend',function(e){
+    if(tx===null) return; var dx=e.changedTouches[0].clientX-tx; tx=null;
+    if(Math.abs(dx)>50) show(cur+(dx<0?1:-1));
+  },{passive:true});
+})();
+</script>
+
+</body></html>
